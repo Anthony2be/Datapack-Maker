@@ -193,6 +193,8 @@ namespace IDE_test
 
             codeBox.BackColor = Color.White;
             codeBox.ForeColor = Color.Black;
+            menuStrip1.BackColor = Color.White;
+            menuStrip1.ForeColor = Color.Black;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -206,6 +208,11 @@ namespace IDE_test
         }
 
         private void dpNamespace_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
         }

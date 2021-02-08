@@ -113,6 +113,7 @@ namespace IDE_test
             // menuStrip1
             // 
             this.menuStrip1.BackColor = System.Drawing.SystemColors.Window;
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
@@ -124,6 +125,7 @@ namespace IDE_test
             this.menuStrip1.Size = new System.Drawing.Size(1478, 33);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // fileToolStripMenuItem
             // 
@@ -315,14 +317,14 @@ namespace IDE_test
             // darkThemeToolStripMenuItem
             // 
             this.darkThemeToolStripMenuItem.Name = "darkThemeToolStripMenuItem";
-            this.darkThemeToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.darkThemeToolStripMenuItem.Size = new System.Drawing.Size(211, 34);
             this.darkThemeToolStripMenuItem.Text = "Dark Theme";
             this.darkThemeToolStripMenuItem.Click += new System.EventHandler(this.darkThemeToolStripMenuItem_Click);
             // 
             // lightThemeToolStripMenuItem
             // 
             this.lightThemeToolStripMenuItem.Name = "lightThemeToolStripMenuItem";
-            this.lightThemeToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.lightThemeToolStripMenuItem.Size = new System.Drawing.Size(211, 34);
             this.lightThemeToolStripMenuItem.Text = "Light Theme";
             this.lightThemeToolStripMenuItem.Click += new System.EventHandler(this.lightThemeToolStripMenuItem_Click);
             // 
@@ -357,6 +359,7 @@ namespace IDE_test
             // 
             // dpNamespace
             // 
+            this.dpNamespace.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dpNamespace.Name = "dpNamespace";
             this.dpNamespace.Size = new System.Drawing.Size(100, 31);
             this.dpNamespace.Click += new System.EventHandler(this.dpNamespace_Click);
@@ -371,6 +374,7 @@ namespace IDE_test
             // 
             // packFormat
             // 
+            this.packFormat.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.packFormat.Name = "packFormat";
             this.packFormat.Size = new System.Drawing.Size(100, 31);
             // 
@@ -384,6 +388,7 @@ namespace IDE_test
             // 
             // dpFolder
             // 
+            this.dpFolder.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dpFolder.Name = "dpFolder";
             this.dpFolder.Size = new System.Drawing.Size(100, 31);
             // 
@@ -397,6 +402,7 @@ namespace IDE_test
             // 
             // mainFunc
             // 
+            this.mainFunc.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.mainFunc.Name = "mainFunc";
             this.mainFunc.Size = new System.Drawing.Size(100, 31);
             // 
@@ -410,6 +416,7 @@ namespace IDE_test
             // 
             // reloadFunc
             // 
+            this.reloadFunc.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.reloadFunc.Name = "reloadFunc";
             this.reloadFunc.Size = new System.Drawing.Size(100, 31);
             // 
@@ -423,6 +430,7 @@ namespace IDE_test
             // 
             // desc
             // 
+            this.desc.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.desc.Name = "desc";
             this.desc.Size = new System.Drawing.Size(100, 31);
             // 
@@ -456,30 +464,30 @@ namespace IDE_test
             // contentsToolStripMenuItem
             // 
             this.contentsToolStripMenuItem.Name = "contentsToolStripMenuItem";
-            this.contentsToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.contentsToolStripMenuItem.Size = new System.Drawing.Size(185, 34);
             this.contentsToolStripMenuItem.Text = "&Contents";
             // 
             // indexToolStripMenuItem
             // 
             this.indexToolStripMenuItem.Name = "indexToolStripMenuItem";
-            this.indexToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.indexToolStripMenuItem.Size = new System.Drawing.Size(185, 34);
             this.indexToolStripMenuItem.Text = "&Index";
             // 
             // searchToolStripMenuItem
             // 
             this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            this.searchToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.searchToolStripMenuItem.Size = new System.Drawing.Size(185, 34);
             this.searchToolStripMenuItem.Text = "&Search";
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(267, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(182, 6);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(185, 34);
             this.aboutToolStripMenuItem.Text = "&About...";
             // 
             // fileSystemWatcher1
