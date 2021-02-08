@@ -8,7 +8,7 @@ deploy:
     secure: 359OUESRLLHVdosaxi2mgvQxvSeYRmmH2LKmkarI/1PJE2tr1uZMH5NodOacqMAn
   artifact: Datapack_Editor
   configuration: Release
-
+  prerelease: true
 environment:
   auth_token:
     secure:'mbgPeg6VB7oIYlnLQNd4XDi5/i46y+O/xXNKsnfdFFusOJjfxS5F1U1yZISa3aGg=='
@@ -16,7 +16,7 @@ environment:
 shallow_clone: true
 image: Visual Studio 2019
 build_script:
-  - devenv /build Release "IDE test.sln"
+  - '"C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/devenv.exe" /Build Release "IDE test.sln"'
 
 artifacts:
 - path: IDE test\bin\Release\*.exe
