@@ -1,0 +1,8 @@
+version: 1.0.{build}
+build:
+  project: IDE test.sln
+  verbosity: minimal
+deploy:
+- provider: GitHub
+  auth_token:
+    secure: 359OUESRLLHVdosaxi2mgvQxvSeYRmmH2LKmkarI/1PJE2tr1uZMH5NodOacqMAn
