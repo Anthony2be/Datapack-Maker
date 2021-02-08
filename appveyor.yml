@@ -4,6 +4,7 @@ build:
   verbosity: minimal
 deploy:
 - provider: GitHub
+  description: A Datapack Code Editor/IDE
   auth_token:
     secure: 359OUESRLLHVdosaxi2mgvQxvSeYRmmH2LKmkarI/1PJE2tr1uZMH5NodOacqMAn
   artifact: Datapack_Editor
