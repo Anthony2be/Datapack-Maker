@@ -1,6 +1,6 @@
 version: 0.0.{build}
 build:
-  project: IDE test.sln
+  project: Datapack-Code-Editor.sln
   verbosity: minimal
 deploy:
 - provider: GitHub
