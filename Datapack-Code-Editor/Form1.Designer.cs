@@ -1,5 +1,5 @@
 ﻿
-namespace IDE_test
+namespace Datapack_Code_Editor
 {
     partial class Form1
     {

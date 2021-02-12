@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 
-namespace IDE_test
+namespace Datapack_Code_Editor
 {
     public partial class Form1 : Form
     {

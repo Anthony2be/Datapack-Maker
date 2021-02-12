@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{E348C5F2-9A6A-46B9-AF2A-753B767E798C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>IDE_test</RootNamespace>
-    <AssemblyName>IDE test</AssemblyName>
+    <RootNamespace>Datapack_Code_Editor</RootNamespace>
+    <AssemblyName>Datapack-Code-Editor</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -52,7 +52,7 @@
     <ManifestCertificateThumbprint>43ECE8CD902C5E8A9E62D54C4C8D8A52A0D858C7</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>IDE test_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>Datapack-Code-Editor_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -93,8 +93,9 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="IDE test_TemporaryKey.pfx" />
+    <None Include="Datapack-Code-Editor_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

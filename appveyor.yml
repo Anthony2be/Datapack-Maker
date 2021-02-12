@@ -4,7 +4,7 @@ build:
   verbosity: minimal
 deploy:
 - provider: GitHub
-  description: A Datapack Code Editor/IDE
+  description: A Datapack Code Editor
   auth_token:
     secure: 359OUESRLLHVdosaxi2mgvQxvSeYRmmH2LKmkarI/1PJE2tr1uZMH5NodOacqMAn
   artifact: Datapack_Editor
@@ -17,8 +17,8 @@ environment:
 shallow_clone: true
 image: Visual Studio 2019
 build_script:
-  - '"C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/devenv.exe" /Build Release "IDE test.sln"'
+  - '"C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/devenv.exe" /Build Release "Datapack-Code-Editor.sln"'
 
 artifacts:
-- path: IDE test\bin\Release\*.exe
+- path: Datapack-Code-Editor\bin\Release\*.exe
   name: Datapack_Editor

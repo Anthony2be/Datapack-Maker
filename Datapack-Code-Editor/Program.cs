@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace IDE_test
+namespace Datapack_Code_Editor
 {
     static class Program
     {
