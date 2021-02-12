@@ -175,6 +175,7 @@ namespace Datapack_Code_Editor
 
         private void darkMode()
         {
+            //sets it to dark theme
             darkThemeToolStripMenuItem.Checked = true;
             lightThemeToolStripMenuItem.Checked = false;
 
@@ -188,6 +189,7 @@ namespace Datapack_Code_Editor
 
         private void lightMode()
         {
+            //sets it to light theme
             darkThemeToolStripMenuItem.Checked = false;
             lightThemeToolStripMenuItem.Checked = true;
 
