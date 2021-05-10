@@ -165,18 +165,38 @@ namespace Datapack_Code_Editor
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (f.Text == "label1")
+            if (status.Text != codeBox.Text)
             {
-                thing();
-            }
-            else
-            {
-                using (StreamWriter sw = new StreamWriter(f.Text))
+                DialogResult dialogResult = MessageBox.Show("Would you like to save?", "New file", MessageBoxButtons.YesNoCancel);
+
+                if (dialogResult.ToString() == "Yes")
                 {
-                    sw.Write(codeBox.Text);
+
+                    if (f.Text == "label1")
+                    {
+                        thing();
+                    }
+                    else
+                    {
+                        using (StreamWriter sw = new StreamWriter(f.Text))
+                        {
+                            sw.Write(codeBox.Text);
+                        }
+                    }
+
+                    Close();
+                }
+
+                if (dialogResult.ToString() == "No")
+                {
+                    Close();
                 }
             }
-            Close();
+
+            else
+            {
+                Close();
+            }
 
         }
 
@@ -271,12 +291,11 @@ namespace Datapack_Code_Editor
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
 
             if (status.Text != codeBox.Text)
             {
                 DialogResult dialogResult = MessageBox.Show("Would you like to save?", "New file", MessageBoxButtons.YesNoCancel);
-                
+
                 if (dialogResult.ToString() == "Yes")
                 {
 
@@ -313,10 +332,11 @@ namespace Datapack_Code_Editor
                 f1.Text = "Datapack creator";
             }
 
-          
+
+
         }
 
-            private void debuggingToolStripMenuItem_Click(object sender, EventArgs e)
+        private void debuggingToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (debuggingToolStripMenuItem.Checked == true)
             {
@@ -328,6 +348,8 @@ namespace Datapack_Code_Editor
                 f.Visible = false;
                 status.Visible = false;
             }
+
         }
+
     }   
 }
