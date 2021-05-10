@@ -21,6 +21,8 @@ namespace Datapack_Code_Editor
             base.Dispose(disposing);
         }
 
+
+
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -81,8 +83,12 @@ namespace Datapack_Code_Editor
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             this.f = new System.Windows.Forms.Label();
+            this.status = new System.Windows.Forms.Label();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.debuggingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
@@ -94,11 +100,12 @@ namespace Datapack_Code_Editor
             this.codeBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.codeBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.codeBox.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.codeBox.Location = new System.Drawing.Point(0, 33);
+            this.codeBox.Location = new System.Drawing.Point(0, 36);
             this.codeBox.Name = "codeBox";
-            this.codeBox.Size = new System.Drawing.Size(1478, 749);
+            this.codeBox.Size = new System.Drawing.Size(1478, 746);
             this.codeBox.TabIndex = 2;
             this.codeBox.Text = "";
+            this.codeBox.TextChanged += new System.EventHandler(this.codeBox_TextChanged);
             // 
             // saveFile
             // 
@@ -119,10 +126,11 @@ namespace Datapack_Code_Editor
             this.fileToolStripMenuItem,
             this.editToolStripMenuItem,
             this.toolsToolStripMenuItem,
-            this.helpToolStripMenuItem});
+            this.helpToolStripMenuItem,
+            this.testToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1478, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(1478, 36);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -153,6 +161,7 @@ namespace Datapack_Code_Editor
             this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
             this.newToolStripMenuItem.Size = new System.Drawing.Size(223, 34);
             this.newToolStripMenuItem.Text = "&New";
+            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // openToolStripMenuItem
             // 
@@ -272,6 +281,7 @@ namespace Datapack_Code_Editor
             this.copyToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
             this.copyToolStripMenuItem.Size = new System.Drawing.Size(219, 34);
             this.copyToolStripMenuItem.Text = "&Copy";
+            this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
             // 
             // pasteToolStripMenuItem
             // 
@@ -281,6 +291,7 @@ namespace Datapack_Code_Editor
             this.pasteToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
             this.pasteToolStripMenuItem.Size = new System.Drawing.Size(219, 34);
             this.pasteToolStripMenuItem.Text = "&Paste";
+            this.pasteToolStripMenuItem.Click += new System.EventHandler(this.pasteToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
@@ -302,14 +313,15 @@ namespace Datapack_Code_Editor
             this.codeEditorToolStripMenuItem});
             this.toolsToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText;
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(69, 29);
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(69, 30);
             this.toolsToolStripMenuItem.Text = "&Tools";
             // 
             // customizeToolStripMenuItem
             // 
             this.customizeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.darkThemeToolStripMenuItem,
-            this.lightThemeToolStripMenuItem});
+            this.lightThemeToolStripMenuItem,
+            this.debuggingToolStripMenuItem});
             this.customizeToolStripMenuItem.Name = "customizeToolStripMenuItem";
             this.customizeToolStripMenuItem.Size = new System.Drawing.Size(344, 34);
             this.customizeToolStripMenuItem.Text = "&Customize";
@@ -490,6 +502,11 @@ namespace Datapack_Code_Editor
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(185, 34);
             this.aboutToolStripMenuItem.Text = "&About...";
             // 
+            // testToolStripMenuItem
+            // 
+            this.testToolStripMenuItem.Name = "testToolStripMenuItem";
+            this.testToolStripMenuItem.Size = new System.Drawing.Size(16, 29);
+            // 
             // fileSystemWatcher1
             // 
             this.fileSystemWatcher1.EnableRaisingEvents = true;
@@ -505,15 +522,40 @@ namespace Datapack_Code_Editor
             this.f.Text = "label1";
             this.f.Visible = false;
             // 
+            // status
+            // 
+            this.status.AutoSize = true;
+            this.status.Location = new System.Drawing.Point(12, 753);
+            this.status.Name = "status";
+            this.status.Size = new System.Drawing.Size(0, 20);
+            this.status.TabIndex = 6;
+            this.status.Visible = false;
+            // 
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(61, 4);
+            // 
+            // debuggingToolStripMenuItem
+            // 
+            this.debuggingToolStripMenuItem.CheckOnClick = true;
+            this.debuggingToolStripMenuItem.Name = "debuggingToolStripMenuItem";
+            this.debuggingToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.debuggingToolStripMenuItem.Text = "Debugging";
+            this.debuggingToolStripMenuItem.Click += new System.EventHandler(this.debuggingToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1478, 782);
+            this.Controls.Add(this.status);
             this.Controls.Add(this.f);
             this.Controls.Add(this.codeBox);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Datapack creator";
@@ -579,6 +621,10 @@ namespace Datapack_Code_Editor
         private System.Windows.Forms.Label f;
         private System.Windows.Forms.ToolStripMenuItem darkThemeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lightThemeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
+        private System.Windows.Forms.Label status;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem debuggingToolStripMenuItem;
     }
 }
 

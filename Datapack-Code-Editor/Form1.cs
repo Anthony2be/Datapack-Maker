@@ -14,17 +14,22 @@ namespace Datapack_Code_Editor
     public partial class Form1 : Form
     {
 
+        static Form f1;
+
         public Form1()
         {
             InitializeComponent();
+
+            f1 = this;
         }
+
+        
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            darkThemeToolStripMenuItem.Checked = false;
-            lightThemeToolStripMenuItem.Checked = true;
+            //darkMode();
 
-            
+            lightMode();
         }
 
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -59,6 +64,9 @@ namespace Datapack_Code_Editor
                 {
                     Directory.CreateDirectory(dpFolder.Text + @"\data\" + dpNamespace.Text + @"\" + path);
                 }
+                
+
+
 
             }
             catch (Exception ex)
@@ -86,12 +94,15 @@ namespace Datapack_Code_Editor
         {
             OpenFileDialog open = new OpenFileDialog();
             open.Title = "Open File";
-            open.Filter = "Mcfunction File|*.mcfunction|Mcmeta File|*.mcmeta|Json File|*.json";
+            open.Filter = "Mcfunction File|*.mcfunction|Mcmeta File|*.mcmeta|Json File|*.json|*.*|*.*";
             if (open.ShowDialog() == DialogResult.OK)
             {
                 f.Text = open.FileName;
                 codeBox.Text = File.ReadAllText(open.FileName);
             }
+
+            status.Text = codeBox.Text;
+            f1.Text = "Datapack creator";
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
@@ -108,19 +119,20 @@ namespace Datapack_Code_Editor
                 }
             }
 
-
+            status.Text = codeBox.Text;
+            f1.Text = "Datapack creator";
         }
         private void thing()
         {
 
             SaveFileDialog sd = new SaveFileDialog();
             sd.CheckPathExists = true;
-            sd.Filter = "Mcfunction File|*.mcfunction|Mcmeta File|*.mcmeta|Json File|*json";
+            sd.Filter = "Mcfunction File|*.mcfunction|Mcmeta File|*.mcmeta|Json File|*.json|*.*|*.*";
             sd.RestoreDirectory = true;
 
             if (sd.ShowDialog() == DialogResult.OK)
             {
-                switch (sd.FilterIndex)
+                /*switch (sd.FilterIndex)
                 {
                     case 1:
                         using (StreamWriter sw = new StreamWriter(sd.FileName))
@@ -135,11 +147,16 @@ namespace Datapack_Code_Editor
                         }
                         break;
                     case 3:
-                        using (StreamWriter sw = new StreamWriter(sd.FileName + ".json"))
+                        using (StreamWriter sw = new StreamWriter(sd.FileName))
                         {
                             sw.Write(codeBox.Text);
                         }
                         break;
+                }*/
+                
+                using (StreamWriter sw = new StreamWriter(sd.FileName))
+                {
+                    sw.Write(codeBox.Text);
                 }
                 f.Text = sd.FileName;
 
@@ -195,6 +212,7 @@ namespace Datapack_Code_Editor
 
             codeBox.BackColor = Color.White;
             codeBox.ForeColor = Color.Black;
+
             menuStrip1.BackColor = Color.White;
             menuStrip1.ForeColor = Color.Black;
         }
@@ -218,5 +236,98 @@ namespace Datapack_Code_Editor
         {
 
         }
-    }
+
+        private void codeBox_TextChanged(object sender, EventArgs e)
+        {
+            /*
+            if (codeBox.Text == "")
+            {
+                codeBox.Text = "test";
+            }
+            else
+            {
+                
+            }*/
+
+            if (codeBox.Text != status.Text)
+            {
+                f1.Text = "Datapack creator *";
+            }
+            else
+            {
+                f1.Text = "Datapack creator";
+            }
+        }
+
+        private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           codeBox.Text = Clipboard.GetText();
+        }
+
+        private void copyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+
+            if (status.Text != codeBox.Text)
+            {
+                DialogResult dialogResult = MessageBox.Show("Would you like to save?", "New file", MessageBoxButtons.YesNoCancel);
+                
+                if (dialogResult.ToString() == "Yes")
+                {
+
+                    if (f.Text == "label1")
+                    {
+                        thing();
+                    }
+                    else
+                    {
+                        using (StreamWriter sw = new StreamWriter(f.Text))
+                        {
+                            sw.Write(codeBox.Text);
+                        }
+                    }
+
+                    f.Text = "label1";
+                    codeBox.Text = "";
+                }
+
+                if (dialogResult.ToString() == "No")
+                {
+                    codeBox.Text = "";
+                    f.Text = "label1";
+                    status.Text = "";
+                    f1.Text = "Datapack creator";
+                }
+            }
+
+            else
+            {
+                codeBox.Text = "";
+                f.Text = "label1";
+                status.Text = "";
+                f1.Text = "Datapack creator";
+            }
+
+          
+        }
+
+            private void debuggingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (debuggingToolStripMenuItem.Checked == true)
+            {
+                f.Visible = true;
+                status.Visible = true;
+            }
+            else
+            {
+                f.Visible = false;
+                status.Visible = false;
+            }
+        }
+    }   
 }

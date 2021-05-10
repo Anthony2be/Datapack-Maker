@@ -18,5 +18,6 @@ namespace Datapack_Code_Editor
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
         }
+
     }
 }
