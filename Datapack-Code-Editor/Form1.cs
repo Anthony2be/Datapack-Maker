@@ -60,9 +60,25 @@ namespace Datapack_Code_Editor
                     dpNamespace.Text = "dp";
                 }
 
-                foreach (string path in folders)
+                /*foreach (string path in folders)
                 {
                     Directory.CreateDirectory(dpFolder.Text + @"\data\" + dpNamespace.Text + @"\" + path);
+                }*/
+
+                if (dpDirectory.Text == "")
+                {
+                    foreach (string path in folders)
+                    {
+                        Directory.CreateDirectory(dpFolder.Text + @"\data\" + dpNamespace.Text + @"\" + path);
+                    }
+                }
+
+                else
+                {
+                    foreach (string path in folders)
+                    {
+                        Directory.CreateDirectory(dpDirectory.Text + @"\" + dpFolder.Text + @"\data\" + dpNamespace.Text + @"\" + path);
+                    }
                 }
                 
 
