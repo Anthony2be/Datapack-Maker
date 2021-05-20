@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Drawing.Printing;
 
 namespace Datapack_Code_Editor
 {
@@ -16,14 +17,23 @@ namespace Datapack_Code_Editor
 
         static Form f1;
 
+        PrintDocument pDocument = new PrintDocument();
+        PrintDialog pDialog = new PrintDialog();
+
         public Form1()
         {
             InitializeComponent();
 
             f1 = this;
+
+            pDocument.PrintPage += new PrintPageEventHandler(document_PrintPage);
         }
 
-        
+        void document_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            e.Graphics.DrawString(codeBox.Text, new Font("Arial", 20, FontStyle.Regular), Brushes.Black, 20, 20);
+        }
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -80,7 +90,7 @@ namespace Datapack_Code_Editor
                         Directory.CreateDirectory(dpDirectory.Text + @"\" + dpFolder.Text + @"\data\" + dpNamespace.Text + @"\" + path);
                     }
                 }
-                
+
 
 
 
@@ -169,7 +179,7 @@ namespace Datapack_Code_Editor
                         }
                         break;
                 }*/
-                
+
                 using (StreamWriter sw = new StreamWriter(sd.FileName))
                 {
                     sw.Write(codeBox.Text);
@@ -297,12 +307,12 @@ namespace Datapack_Code_Editor
 
         private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           codeBox.Text = Clipboard.GetText();
+            codeBox.Text = Clipboard.GetText();
         }
 
         private void copyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
@@ -367,5 +377,29 @@ namespace Datapack_Code_Editor
 
         }
 
-    }   
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //System.Diagnostics.Process.Start("");
+
+        }
+
+        private void printToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+            pDialog.Document = pDocument;
+            if (pDialog.ShowDialog() == DialogResult.OK)
+            {
+                pDocument.Print();
+            }
+        }
+
+        private void printPreviewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PrintPreviewDialog pPDialog = new PrintPreviewDialog();
+
+            pPDialog.Document = pDocument;
+
+            pPDialog.ShowDialog();
+        }
+    }
 }

@@ -76,6 +76,8 @@ namespace Datapack_Code_Editor
             this.reloadFunc = new System.Windows.Forms.ToolStripTextBox();
             this.descriptionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.desc = new System.Windows.Forms.ToolStripTextBox();
+            this.directoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dpDirectory = new System.Windows.Forms.ToolStripTextBox();
             this.generateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.codeEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -88,8 +90,6 @@ namespace Datapack_Code_Editor
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             this.f = new System.Windows.Forms.Label();
             this.status = new System.Windows.Forms.Label();
-            this.directoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dpDirectory = new System.Windows.Forms.ToolStripTextBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
@@ -121,6 +121,7 @@ namespace Datapack_Code_Editor
             // menuStrip1
             // 
             this.menuStrip1.BackColor = System.Drawing.SystemColors.Window;
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
@@ -159,7 +160,7 @@ namespace Datapack_Code_Editor
             this.newToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
             this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(223, 34);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.newToolStripMenuItem.Text = "&New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
@@ -169,14 +170,14 @@ namespace Datapack_Code_Editor
             this.openToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(223, 34);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.openToolStripMenuItem.Text = "&Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // toolStripSeparator
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(220, 6);
+            this.toolStripSeparator.Size = new System.Drawing.Size(267, 6);
             // 
             // saveToolStripMenuItem
             // 
@@ -184,21 +185,21 @@ namespace Datapack_Code_Editor
             this.saveToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(223, 34);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.saveToolStripMenuItem.Text = "&Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(223, 34);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.saveAsToolStripMenuItem.Text = "Save &As";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(220, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(267, 6);
             // 
             // printToolStripMenuItem
             // 
@@ -206,26 +207,28 @@ namespace Datapack_Code_Editor
             this.printToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.printToolStripMenuItem.Name = "printToolStripMenuItem";
             this.printToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this.printToolStripMenuItem.Size = new System.Drawing.Size(223, 34);
+            this.printToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.printToolStripMenuItem.Text = "&Print";
+            this.printToolStripMenuItem.Click += new System.EventHandler(this.printToolStripMenuItem_Click);
             // 
             // printPreviewToolStripMenuItem
             // 
             this.printPreviewToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("printPreviewToolStripMenuItem.Image")));
             this.printPreviewToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.printPreviewToolStripMenuItem.Name = "printPreviewToolStripMenuItem";
-            this.printPreviewToolStripMenuItem.Size = new System.Drawing.Size(223, 34);
+            this.printPreviewToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.printPreviewToolStripMenuItem.Text = "Print Pre&view";
+            this.printPreviewToolStripMenuItem.Click += new System.EventHandler(this.printPreviewToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(220, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(267, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(223, 34);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -380,6 +383,7 @@ namespace Datapack_Code_Editor
             // 
             // dpNamespace
             // 
+            this.dpNamespace.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dpNamespace.Name = "dpNamespace";
             this.dpNamespace.Size = new System.Drawing.Size(100, 31);
             this.dpNamespace.Click += new System.EventHandler(this.dpNamespace_Click);
@@ -394,6 +398,7 @@ namespace Datapack_Code_Editor
             // 
             // packFormat
             // 
+            this.packFormat.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.packFormat.Name = "packFormat";
             this.packFormat.Size = new System.Drawing.Size(100, 31);
             // 
@@ -407,6 +412,7 @@ namespace Datapack_Code_Editor
             // 
             // dpFolder
             // 
+            this.dpFolder.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dpFolder.Name = "dpFolder";
             this.dpFolder.Size = new System.Drawing.Size(100, 31);
             // 
@@ -420,6 +426,7 @@ namespace Datapack_Code_Editor
             // 
             // mainFunc
             // 
+            this.mainFunc.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.mainFunc.Name = "mainFunc";
             this.mainFunc.Size = new System.Drawing.Size(100, 31);
             // 
@@ -433,6 +440,7 @@ namespace Datapack_Code_Editor
             // 
             // reloadFunc
             // 
+            this.reloadFunc.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.reloadFunc.Name = "reloadFunc";
             this.reloadFunc.Size = new System.Drawing.Size(100, 31);
             // 
@@ -446,8 +454,23 @@ namespace Datapack_Code_Editor
             // 
             // desc
             // 
+            this.desc.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.desc.Name = "desc";
             this.desc.Size = new System.Drawing.Size(100, 31);
+            // 
+            // directoryToolStripMenuItem
+            // 
+            this.directoryToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dpDirectory});
+            this.directoryToolStripMenuItem.Name = "directoryToolStripMenuItem";
+            this.directoryToolStripMenuItem.Size = new System.Drawing.Size(295, 34);
+            this.directoryToolStripMenuItem.Text = "Directory";
+            // 
+            // dpDirectory
+            // 
+            this.dpDirectory.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.dpDirectory.Name = "dpDirectory";
+            this.dpDirectory.Size = new System.Drawing.Size(100, 31);
             // 
             // generateToolStripMenuItem
             // 
@@ -504,6 +527,7 @@ namespace Datapack_Code_Editor
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(185, 34);
             this.aboutToolStripMenuItem.Text = "&About...";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // testToolStripMenuItem
             // 
@@ -533,19 +557,6 @@ namespace Datapack_Code_Editor
             this.status.Size = new System.Drawing.Size(0, 20);
             this.status.TabIndex = 6;
             this.status.Visible = false;
-            // 
-            // directoryToolStripMenuItem
-            // 
-            this.directoryToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.dpDirectory});
-            this.directoryToolStripMenuItem.Name = "directoryToolStripMenuItem";
-            this.directoryToolStripMenuItem.Size = new System.Drawing.Size(295, 34);
-            this.directoryToolStripMenuItem.Text = "Directory";
-            // 
-            // dpDirectory
-            // 
-            this.dpDirectory.Name = "dpDirectory";
-            this.dpDirectory.Size = new System.Drawing.Size(100, 31);
             // 
             // Form1
             // 
